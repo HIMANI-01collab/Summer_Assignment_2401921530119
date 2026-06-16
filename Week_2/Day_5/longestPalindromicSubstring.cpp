@@ -1,25 +1,36 @@
 #include <bits/stdc++.h>
+#include<string>
 using namespace std;
 
 class Solution {
 public:
     string longestPalindrome(string s) {
-        string pali_sub = "";
-        for (int i = 0; i < s.size(); i++) {
-            string p1 = expand(s, i, i);
-            string p2 = expand(s, i, i + 1);
-
-            if (p1.size() > pali_sub.size()) pali_sub = p1;
-            if (p2.size() > pali_sub.size()) pali_sub = p2;
-        }
-
-        return pali_sub;
-    }
-    string expand(string &s, int l, int r) {
-        while (l >= 0 && r < s.size() && s[l] == s[r]) {
-            l--;
-            r++;
-        }
-        return s.substr(l + 1, r - l - 1);
+        int n=s.size();
+        int resLength=0;
+        string res="";
+        int l,r;
+        for(int i=0;i<n;i++){
+            //odd length palindrome 
+                l=i,r=i;
+                while(l>=0 && r< n && s[l]==s[r]){
+                    if(r-l+1 > resLength){
+                        res=s.substr(l,r-l+1);
+                        resLength=r-l+1;
+                    }
+                    l--;
+                    r++;
+                } 
+            //even length palindrome    
+                l=i,r=i+1;
+                while(l>=0 && r< n && s[l]==s[r]){
+                    if(r-l+1 > resLength){
+                        res=s.substr(l,r-l+1);
+                        resLength=r-l+1;
+                    }
+                    l--;
+                    r++;
+                }  
+        }  
+        return res;
     }
 };
