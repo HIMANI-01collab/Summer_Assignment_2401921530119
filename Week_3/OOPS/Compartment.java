@@ -51,7 +51,7 @@ class TestCompartment{
         }
     }
 }
-
+//concept------>
 
 /*Compartment references point to different subclass objects (FirstClass, Ladies, General, Luggage).
  When notice() is invoked, Java chooses the appropriate overridden method according to the object's actual type. 
@@ -64,9 +64,10 @@ class TestCompartment{
        ->initially, all 10 elements contain null. */
 
 /*compartments[0] = new FirstClass();
-    creates a FirstClass object and stores a reference to it in index 0.
-    reference type of compartments[0] is Compartment.
-    actual (runtime) type of the object is FirstClass. */
+     ->creates a FirstClass object and stores a reference to it in index 0.
+     ->reference type of compartments[0] is Compartment.
+     ->actual (runtime) type of the object is FirstClass. */
 
  /*compartments[0].notice();
-       The reference is of type Compartment, but the actual object is a FirstClass, so I should execute FirstClass.notice(). */   
+       here, the reference is of type Compartment, 
+       but the actual object is a FirstClass, so  FirstClass.notice() should execute. */   
